@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Professional Overview</title>
+    <title>Estella Chow | Portfolio</title>
+
     <style>
         :root {
-            --bg-main: #ffffff;
-            --bg-secondary: #f8fafc;
-            --text-dark: #0f172a;
-            --text-muted: #475569;
-            --navy-primary: #0a192f;
-            --blue-accent: #1e3a8a;
-            --blue-light: #e0e7ff;
-            --border-color: #e2e8f0;
+            --black: #111111;
+            --white: #f7f7f5;
+            --gray: #777777;
+            --light-gray: #deded9;
         }
 
         * {
@@ -22,207 +19,428 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-dark);
-            line-height: 1.6;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.4;
         }
 
-        /* Navigation / Header */
-        header {
-            background-color: var(--navy-primary);
-            color: #ffffff;
-            padding: 4rem 2rem;
-            text-align: center;
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        .hero-container {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
+        /* =========================
+           NAVIGATION
+        ========================= */
 
-        /* Headshot Placeholder */
-        .headshot-container {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid #ffffff;
-            overflow: hidden;
-            background-color: #cbd5e1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-        }
-
-        .headshot-container img {
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            z-index: 100;
+            padding: 22px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(247, 247, 245, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .nav-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        header {
+            min-height: 100vh;
+            padding: 150px 6vw 70px;
+            display: flex;
+            align-items: flex-end;
+            border-bottom: 1px solid var(--black);
+        }
+
+        .hero {
+            width: 100%;
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 50px;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 600;
+        }
+
+        .hero-location {
+            text-align: right;
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
         .hero-name {
-            font-size: 2.25rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
+            font-size: clamp(5rem, 14vw, 13rem);
+            line-height: 0.8;
+            letter-spacing: -0.08em;
+            font-weight: 800;
+            margin-left: -8px;
         }
 
-        /* Personal Statement */
+        .hero-bottom {
+            margin-top: 65px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: end;
+        }
+
         .personal-statement {
-            font-size: 1.2rem;
-            font-weight: 300;
-            color: #e2e8f0;
-            max-width: 650px;
-            line-height: 1.5;
+            font-size: clamp(1.2rem, 2vw, 1.7rem);
+            max-width: 700px;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
         }
 
-        /* Layout Structure */
+        .hero-scroll {
+            text-align: right;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
         main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
+            width: 100%;
         }
 
         section {
-            margin-bottom: 3.5rem;
+            padding: 110px 6vw;
+            border-bottom: 1px solid var(--black);
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 70px;
+        }
+
+        .section-number {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gray);
         }
 
         .section-title {
-            font-size: 1.5rem;
-            color: var(--navy-primary);
-            border-bottom: 3px solid var(--blue-accent);
-            display: inline-block;
-            padding-bottom: 0.3rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            font-size: clamp(3rem, 7vw, 7rem);
+            line-height: 0.9;
+            letter-spacing: -0.07em;
+            font-weight: 700;
         }
 
-        /* Skills Showcase */
+        /* =========================
+           SKILLS
+        ========================= */
+
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(2, 1fr);
+            border-top: 1px solid var(--black);
         }
 
         .skill-category {
-            background-color: var(--bg-secondary);
-            padding: 1.25rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
+            padding: 35px 25px 40px 0;
+            border-bottom: 1px solid var(--black);
+        }
+
+        .skill-category:nth-child(2) {
+            padding-left: 25px;
+            border-left: 1px solid var(--black);
         }
 
         .skill-category h3 {
-            font-size: 1rem;
-            color: var(--blue-accent);
-            margin-bottom: 0.75rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 30px;
         }
 
         .skills-list {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 8px;
         }
 
         .skill-tag {
-            background-color: var(--blue-light);
-            color: var(--blue-accent);
+            border: 1px solid var(--black);
+            padding: 10px 15px;
             font-size: 0.85rem;
-            font-weight: 600;
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
+            transition: all 0.2s ease;
         }
 
-        /* Projects Section */
+        .skill-tag:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
         .projects-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            border-top: 1px solid var(--black);
         }
 
         .project-card {
-            background-color: var(--bg-main);
-            border: 1px solid var(--border-color);
-            border-left: 5px solid var(--navy-primary);
-            border-radius: 6px;
-            padding: 1.5rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            padding: 40px 35px 50px 0;
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--black);
         }
 
-        .project-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        .project-card:nth-child(2) {
+            padding-left: 35px;
+            border-left: 1px solid var(--black);
+        }
+
+        .project-number {
+            font-size: 0.7rem;
+            color: var(--gray);
+            letter-spacing: 0.1em;
         }
 
         .project-title {
-            font-size: 1.25rem;
-            color: var(--navy-primary);
-            margin-bottom: 0.5rem;
+            font-size: clamp(2rem, 4vw, 4rem);
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+            margin: 30px 0;
+            max-width: 600px;
         }
 
         .project-description {
-            color: var(--text-muted);
+            max-width: 500px;
+            color: #444444;
             font-size: 0.95rem;
-            margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
         .project-link {
-            display: inline-block;
-            color: #ffffff;
-            background-color: var(--navy-primary);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
+            margin-top: 35px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            width: fit-content;
+            border-bottom: 1px solid var(--black);
+            padding-bottom: 5px;
         }
 
         .project-link:hover {
-            background-color: var(--blue-accent);
+            opacity: 0.5;
         }
 
-        /* Footer */
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: var(--bg-secondary);
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.875rem;
+            padding: 50px 6vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 18px 20px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            header {
+                padding: 130px 20px 50px;
+                min-height: 90vh;
+            }
+
+            .hero-top {
+                margin-bottom: 40px;
+            }
+
+            .hero-name {
+                font-size: clamp(4rem, 20vw, 7rem);
+            }
+
+            .hero-bottom {
+                grid-template-columns: 1fr;
+                margin-top: 50px;
+            }
+
+            .hero-scroll {
+                text-align: left;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+
+            .section-header {
+                grid-template-columns: 1fr;
+                margin-bottom: 50px;
+            }
+
+            .section-title {
+                font-size: 4rem;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-category,
+            .skill-category:nth-child(2) {
+                padding: 30px 0;
+                border-left: none;
+            }
+
+            .project-card,
+            .project-card:nth-child(2) {
+                padding: 35px 0;
+                border-left: none;
+            }
+
+            footer {
+                padding: 35px 20px;
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <div class="hero-container">
-            <!-- HEADSHOT LOCATION: Replace "headshot.jpg" with your image file name -->
-            <div class="headshot-container">
-                <img src="headshot.jpg" alt="Profile Headshot" onerror="this.style.display='none'; this.parentElement.innerText='Your Photo';">
-            </div>
-            
-            <h1 class="hero-name">Estella Chow</h1>
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#" class="nav-name">Estella Chow</a>
 
-            <!-- PERSONAL STATEMENT -->
-            <p class="personal-statement">
-                A detail-oriented business analytics student passionate about using data and technology to solve complex problems and create impactful business solutions.
-            </p>
+        <div class="nav-links">
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <header>
+        <div class="hero">
+
+            <div class="hero-top">
+                <span class="hero-label">Business Analytics × Technology</span>
+
+                <span class="hero-location">
+                    Rutgers University<br>
+                    New Brunswick, NJ
+                </span>
+            </div>
+
+            <h1 class="hero-name">
+                Estella<br>Chow
+            </h1>
+
+            <div class="hero-bottom">
+
+                <p class="personal-statement">
+                    A detail-oriented business analytics student passionate about using data and technology to solve complex problems and create impactful business solutions.
+                </p>
+
+                <div class="hero-scroll">
+                    ↓ Explore my work
+                </div>
+
+            </div>
+
         </div>
     </header>
 
+
     <main>
-        <!-- SKILLS SHOWCASE -->
+
+        <!-- SKILLS -->
         <section id="skills">
-            <h2 class="section-title">Skills & Capabilities</h2>
+
+            <div class="section-header">
+                <span class="section-number">01 / Skills</span>
+
+                <h2 class="section-title">
+                    Skills &<br>
+                    Capabilities
+                </h2>
+            </div>
+
             <div class="skills-grid">
+
                 <div class="skill-category">
-                    <h3>Technical Skills</h3>
+                    <h3>Programming & Tools</h3>
+
                     <ul class="skills-list">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">Java</span>
@@ -231,46 +449,103 @@
                     </ul>
                 </div>
 
+
                 <div class="skill-category">
-                    <h3>Professional Skills</h3>
+                    <h3>Business & Analytics</h3>
+
                     <ul class="skills-list">
-                        <span class="skill-tag">Project Management</span>
-                        <span class="skill-tag">Problem Solving</span>
-                        <span class="skill-tag">Technical Communication</span>
+                        <span class="skill-tag">Financial Analysis</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Database Management</span>
+                        <span class="skill-tag">Tableau</span>
                     </ul>
                 </div>
+
             </div>
+
         </section>
 
-        <!-- PROJECTS SECTION -->
+
+        <!-- PROJECTS -->
         <section id="projects">
-            <h2 class="section-title">Featured Projects</h2>
+
+            <div class="section-header">
+                <span class="section-number">02 / Selected Work</span>
+
+                <h2 class="section-title">
+                    Featured<br>
+                    Projects
+                </h2>
+            </div>
+
+
             <div class="projects-grid">
-                
-                <!-- Project 1 -->
+
+                <!-- PROJECT 01 -->
                 <article class="project-card">
-                    <h3 class="project-title">Graphic Design Portfolio</h3>
-                    <p class="project-description">
-                        A collection of promotional graphics and social media designs created for Rutgers Business Information Technology Society, showcasing my experience in visual communication, branding, and digital design.
-                    </p>
-                    <a href="https://ejc2803ace.myportfolio.com/" target="_blank" class="project-link">View Design Portfolio &rarr;</a>
+
+                    <div>
+                        <span class="project-number">01 — DESIGN</span>
+
+                        <h3 class="project-title">
+                            Graphic Design Portfolio
+                        </h3>
+
+                        <p class="project-description">
+                            A collection of promotional graphics and social media designs created for Rutgers Business Information Technology Society, showcasing my experience in visual communication, branding, and digital design.
+                        </p>
+                    </div>
+
+                    <a
+                        href="https://ejc2803ace.myportfolio.com/"
+                        target="_blank"
+                        class="project-link"
+                    >
+                        View Design Portfolio →
+                    </a>
+
                 </article>
 
-                <!-- Project 2 -->
+
+                <!-- PROJECT 02 -->
                 <article class="project-card">
-                    <h3 class="project-title">Deloitte Data Analytics Job Simulation</h3>
-                    <p class="project-description">
-                        Completed Deloitte's Data Analytics job simulation through Forage, creating a data dashboard using Tableau and using Excel to classify data and draw business conclusions.
-                    </p>
-                    <a href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_6aa1959272c3c3711179aa53_1791428177723_completion_certificate.pdf" target="_blank" class="project-link">View Certificate &rarr;</a>
+
+                    <div>
+                        <span class="project-number">02 — DATA ANALYTICS</span>
+
+                        <h3 class="project-title">
+                            Deloitte Data Analytics Job Simulation
+                        </h3>
+
+                        <p class="project-description">
+                            Completed Deloitte's Data Analytics job simulation through Forage, creating a data dashboard using Tableau and using Excel to classify data and draw business conclusions.
+                        </p>
+                    </div>
+
+                    <a
+                        href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_6aa1959272c3c3711179aa53_1791428177723_completion_certificate.pdf"
+                        target="_blank"
+                        class="project-link"
+                    >
+                        View Certificate →
+                    </a>
+
                 </article>
 
             </div>
+
         </section>
+
     </main>
 
+
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Estella Chow. All rights reserved.</p>
+
+        <span>© 2026 Estella Chow</span>
+
+        <span>Business Analytics × Technology</span>
+
     </footer>
 
 </body>
