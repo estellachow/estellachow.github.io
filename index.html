@@ -6,7 +6,7 @@
 
     <title>Estella Chow | Portfolio</title>
 
-    <!-- Icons -->
+    <!-- Font Awesome Icons -->
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -14,12 +14,13 @@
 
     <style>
         :root {
+            --navy: #0a192f;
             --blue: #2563eb;
             --blue-light: #eff6ff;
             --blue-pale: #dbeafe;
-            --black: #111111;
-            --gray: #64748b;
-            --border: #d9e1eb;
+            --text: #111827;
+            --muted: #64748b;
+            --border: #dbe3ee;
             --white: #ffffff;
         }
 
@@ -37,7 +38,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Helvetica, Arial, sans-serif;
             background: var(--white);
-            color: var(--black);
+            color: var(--text);
             line-height: 1.6;
         }
 
@@ -51,8 +52,10 @@
             left: 0;
             width: 100%;
             z-index: 100;
+
             background: rgba(255, 255, 255, 0.94);
             backdrop-filter: blur(10px);
+
             border-bottom: 1px solid var(--border);
         }
 
@@ -60,12 +63,14 @@
             max-width: 1200px;
             margin: auto;
             padding: 1rem 2rem;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .nav-name {
+            color: var(--navy);
             font-size: 0.95rem;
             font-weight: 800;
             letter-spacing: -0.02em;
@@ -78,12 +83,14 @@
         }
 
         .nav-links a {
-            color: var(--black);
+            color: var(--text);
             text-decoration: none;
+
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+
             transition: color 0.2s ease;
         }
 
@@ -104,9 +111,9 @@
 
             background:
                 radial-gradient(
-                    circle at 90% 15%,
+                    circle at 88% 18%,
                     rgba(37, 99, 235, 0.08),
-                    transparent 25%
+                    transparent 27%
                 );
         }
 
@@ -123,27 +130,33 @@
 
         .hero-label {
             color: var(--blue);
+
             font-size: 0.7rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 1.25rem;
+            letter-spacing: 0.16em;
+
+            margin-bottom: 1.3rem;
         }
 
         .hero h1 {
+            color: var(--navy);
+
             font-size: clamp(4.5rem, 10vw, 8.5rem);
             line-height: 0.86;
             letter-spacing: -0.075em;
             font-weight: 900;
-            color: var(--black);
+
             margin-bottom: 2rem;
         }
 
         .hero-description {
             max-width: 620px;
-            color: var(--gray);
+
+            color: var(--muted);
             font-size: 1.05rem;
             line-height: 1.75;
+
             margin-bottom: 2rem;
         }
 
@@ -154,9 +167,10 @@
         }
 
         .hero-info span {
+            color: var(--text);
+
             font-size: 0.75rem;
             font-weight: 700;
-            color: var(--black);
             text-transform: uppercase;
             letter-spacing: 0.07em;
         }
@@ -185,8 +199,9 @@
 
             object-fit: cover;
 
-            border: 1px solid var(--black);
             display: block;
+
+            border: 1px solid var(--navy);
         }
 
         .headshot-outline {
@@ -240,10 +255,13 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
+
             margin-bottom: 3rem;
         }
 
         .section-title {
+            color: var(--navy);
+
             font-size: clamp(2.5rem, 5vw, 4.5rem);
             line-height: 1;
             letter-spacing: -0.06em;
@@ -252,6 +270,7 @@
 
         .section-number {
             color: var(--blue);
+
             font-size: 0.7rem;
             font-weight: 800;
             letter-spacing: 0.12em;
@@ -286,6 +305,7 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
+
             margin-bottom: 1.5rem;
         }
 
@@ -304,6 +324,8 @@
         }
 
         .skill-category h3 {
+            color: var(--navy);
+
             font-size: 0.85rem;
             font-weight: 800;
             text-transform: uppercase;
@@ -314,6 +336,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.6rem;
+
             list-style: none;
         }
 
@@ -322,6 +345,8 @@
 
             background: white;
             border: 1px solid var(--border);
+
+            color: var(--text);
 
             font-size: 0.8rem;
             font-weight: 600;
@@ -377,22 +402,28 @@
 
         .project-number {
             color: var(--blue);
+
             font-size: 0.7rem;
             font-weight: 800;
             letter-spacing: 0.12em;
         }
 
         .project-title {
+            color: var(--navy);
+
             font-size: 1.8rem;
             line-height: 1.1;
             letter-spacing: -0.04em;
+
             margin: 1rem 0;
         }
 
         .project-description {
-            color: var(--gray);
+            color: var(--muted);
+
             font-size: 0.9rem;
             line-height: 1.7;
+
             max-width: 500px;
         }
 
@@ -401,7 +432,7 @@
             align-items: center;
             gap: 0.6rem;
 
-            color: var(--black);
+            color: var(--navy);
             text-decoration: none;
 
             font-size: 0.75rem;
@@ -428,7 +459,7 @@
 
             padding: 2.5rem 2rem;
 
-            background: var(--black);
+            background: var(--navy);
             color: white;
         }
 
@@ -442,8 +473,8 @@
         }
 
         footer p {
-            font-size: 0.75rem;
             color: #cbd5e1;
+            font-size: 0.75rem;
         }
 
         /* =========================
@@ -528,16 +559,16 @@
             <div class="hero-text">
 
                 <p class="hero-label">
-                    Rutgers University · Business Analytics
+                    DATA · BUSINESS · TECHNOLOGY
                 </p>
 
                 <h1>
                     Estella<br>
-                    Chow.
+                    Chow
                 </h1>
 
                 <p class="hero-description">
-                    A detail-oriented business analytics student passionate
+                    A detail-oriented business analytics and finance student passionate
                     about using data and technology to solve complex problems
                     and create impactful business solutions.
                 </p>
@@ -560,6 +591,7 @@
 
 
             <!-- HEADSHOT -->
+
             <div class="headshot-wrapper">
 
                 <img
@@ -604,7 +636,7 @@
 
             <div class="skills-grid">
 
-                <!-- PROGRAMMING -->
+                <!-- PROGRAMMING & TOOLS -->
 
                 <div class="skill-category">
 
@@ -643,7 +675,7 @@
                 </div>
 
 
-                <!-- BUSINESS -->
+                <!-- BUSINESS & ANALYTICS -->
 
                 <div class="skill-category">
 
