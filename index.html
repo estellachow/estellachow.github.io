@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estella Chow | Portfolio</title>
+
+    <title>Estella Chow | Business Analytics & Technology</title>
+
+    <!-- Font Awesome Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 
     <style>
         :root {
-            --black: #111111;
-            --white: #f7f7f5;
-            --gray: #777777;
-            --light-gray: #deded9;
+            --blue: #2563eb;
+            --navy: #0f172a;
+            --light-blue: #eff6ff;
+            --pale-blue: #dbeafe;
+            --text: #111827;
+            --muted: #64748b;
+            --border: #dbe3ee;
+            --white: #ffffff;
+            --background: #f8fafc;
         }
 
         * {
@@ -24,20 +36,14 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
             background: var(--white);
-            color: var(--black);
-            line-height: 1.4;
+            color: var(--text);
+            line-height: 1.6;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* =========================
-           NAVIGATION
-        ========================= */
+        /* ---------------- NAVIGATION ---------------- */
 
         nav {
             position: fixed;
@@ -45,331 +51,401 @@
             left: 0;
             width: 100%;
             z-index: 100;
-            padding: 22px 40px;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(247, 247, 245, 0.92);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--light-gray);
         }
 
         .nav-name {
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-name span {
+            color: var(--blue);
         }
 
         .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        /* ---------------- HERO ---------------- */
+
+        .hero {
+            min-height: 100vh;
+            padding: 9rem 2rem 5rem;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(37, 99, 235, 0.10),
+                    transparent 28%
+                ),
+                var(--white);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .hero-label {
+            color: var(--blue);
             font-size: 0.75rem;
-            font-weight: 600;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 9vw, 8rem);
+            line-height: 0.88;
+            letter-spacing: -0.07em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .hero-info {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-info span {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--navy);
             text-transform: uppercase;
             letter-spacing: 0.08em;
         }
 
-        .nav-links a:hover {
-            text-decoration: underline;
+        .hero-info i {
+            color: var(--blue);
+            margin-right: 0.4rem;
         }
 
-        /* =========================
-           HERO
-        ========================= */
+        /* ---------------- HEADSHOT ---------------- */
 
-        header {
-            min-height: 100vh;
-            padding: 150px 6vw 70px;
-            display: flex;
-            align-items: flex-end;
-            border-bottom: 1px solid var(--black);
+        .headshot-wrapper {
+            position: relative;
+            justify-self: center;
         }
 
-        .hero {
-            width: 100%;
+        .headshot {
+            width: 285px;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+
+            border: 1px solid var(--navy);
+            position: relative;
+            z-index: 2;
         }
 
-        .hero-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 50px;
+        .headshot-decoration {
+            position: absolute;
+            width: 285px;
+            height: 350px;
+            border: 2px solid var(--blue);
+            top: 18px;
+            left: 18px;
+            z-index: 1;
         }
 
-        .hero-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-weight: 600;
-        }
-
-        .hero-location {
-            text-align: right;
-            font-size: 0.75rem;
-            color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .hero-name {
-            font-size: clamp(5rem, 14vw, 13rem);
-            line-height: 0.8;
-            letter-spacing: -0.08em;
+        .headshot-label {
+            position: absolute;
+            bottom: -15px;
+            left: -20px;
+            background: var(--blue);
+            color: white;
+            padding: 0.55rem 0.8rem;
+            font-size: 0.65rem;
             font-weight: 800;
-            margin-left: -8px;
-        }
-
-        .hero-bottom {
-            margin-top: 65px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: end;
-        }
-
-        .personal-statement {
-            font-size: clamp(1.2rem, 2vw, 1.7rem);
-            max-width: 700px;
-            line-height: 1.25;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-scroll {
-            text-align: right;
-            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.12em;
+            z-index: 3;
         }
 
-        /* =========================
-           MAIN
-        ========================= */
+        /* ---------------- GENERAL SECTIONS ---------------- */
 
         main {
-            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
         }
 
         section {
-            padding: 110px 6vw;
-            border-bottom: 1px solid var(--black);
+            padding: 7rem 0;
+            border-top: 1px solid var(--border);
         }
 
         .section-header {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 30px;
-            margin-bottom: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3rem;
         }
 
         .section-number {
-            font-size: 0.7rem;
-            text-transform: uppercase;
+            color: var(--blue);
+            font-size: 0.75rem;
+            font-weight: 800;
             letter-spacing: 0.12em;
-            color: var(--gray);
         }
 
         .section-title {
-            font-size: clamp(3rem, 7vw, 7rem);
-            line-height: 0.9;
-            letter-spacing: -0.07em;
-            font-weight: 700;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            font-weight: 850;
         }
 
-        /* =========================
-           SKILLS
-        ========================= */
+        /* ---------------- SKILLS ---------------- */
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            border-top: 1px solid var(--black);
+            grid-template-columns: 1fr 1fr;
+            border-top: 1px solid var(--border);
+            border-left: 1px solid var(--border);
         }
 
         .skill-category {
-            padding: 35px 25px 40px 0;
-            border-bottom: 1px solid var(--black);
+            padding: 2rem;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.25s ease;
         }
 
-        .skill-category:nth-child(2) {
-            padding-left: 25px;
-            border-left: 1px solid var(--black);
+        .skill-category:hover {
+            background: var(--light-blue);
+        }
+
+        .skill-heading {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--pale-blue);
+            color: var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
         }
 
         .skill-category h3 {
-            font-size: 0.7rem;
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-bottom: 30px;
+            letter-spacing: 0.08em;
         }
 
         .skills-list {
-            list-style: none;
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 0.6rem;
+            list-style: none;
         }
 
         .skill-tag {
-            border: 1px solid var(--black);
-            padding: 10px 15px;
+            padding: 0.55rem 0.8rem;
+            background: white;
+            border: 1px solid var(--border);
             font-size: 0.85rem;
-            transition: all 0.2s ease;
+            font-weight: 600;
         }
 
-        .skill-tag:hover {
-            background: var(--black);
-            color: var(--white);
-        }
+        /* ---------------- PROJECTS ---------------- */
 
-        /* =========================
-           PROJECTS
-        ========================= */
-
-        .projects-grid {
+        .projects {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0;
-            border-top: 1px solid var(--black);
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
         }
 
         .project-card {
-            padding: 40px 35px 50px 0;
-            min-height: 360px;
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            min-height: 330px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border-bottom: 1px solid var(--black);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease,
+                        border-color 0.25s ease;
         }
 
-        .project-card:nth-child(2) {
-            padding-left: 35px;
-            border-left: 1px solid var(--black);
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--blue);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue);
         }
 
         .project-number {
             font-size: 0.7rem;
-            color: var(--gray);
-            letter-spacing: 0.1em;
+            font-weight: 800;
+            color: var(--blue);
+            letter-spacing: 0.12em;
         }
 
         .project-title {
-            font-size: clamp(2rem, 4vw, 4rem);
-            line-height: 0.95;
-            letter-spacing: -0.05em;
-            margin: 30px 0;
-            max-width: 600px;
+            font-size: 1.8rem;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin: 1rem 0;
         }
 
         .project-description {
-            max-width: 500px;
-            color: #444444;
+            color: var(--muted);
             font-size: 0.95rem;
-            line-height: 1.6;
+            max-width: 500px;
         }
 
         .project-link {
-            margin-top: 35px;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.7rem;
+            gap: 0.6rem;
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 700;
-            width: fit-content;
-            border-bottom: 1px solid var(--black);
-            padding-bottom: 5px;
+            letter-spacing: 0.08em;
+            margin-top: 2rem;
         }
 
         .project-link:hover {
-            opacity: 0.5;
+            color: var(--blue);
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* ---------------- FOOTER ---------------- */
 
         footer {
-            padding: 50px 6vw;
+            margin-top: 3rem;
+            background: var(--navy);
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
+        footer p {
+            font-size: 0.8rem;
+            color: #cbd5e1;
+        }
 
-        @media (max-width: 700px) {
+        .footer-accent {
+            color: #60a5fa;
+        }
 
-            nav {
-                padding: 18px 20px;
+        /* ---------------- MOBILE ---------------- */
+
+        @media (max-width: 800px) {
+
+            .nav-container {
+                padding: 1rem;
             }
 
             .nav-links {
-                gap: 15px;
+                gap: 1rem;
             }
 
-            header {
-                padding: 130px 20px 50px;
-                min-height: 90vh;
+            .hero {
+                padding-top: 7rem;
             }
 
-            .hero-top {
-                margin-bottom: 40px;
-            }
-
-            .hero-name {
-                font-size: clamp(4rem, 20vw, 7rem);
-            }
-
-            .hero-bottom {
+            .hero-container {
                 grid-template-columns: 1fr;
-                margin-top: 50px;
+                gap: 4rem;
             }
 
-            .hero-scroll {
-                text-align: left;
-            }
-
-            section {
-                padding: 80px 20px;
-            }
-
-            .section-header {
-                grid-template-columns: 1fr;
-                margin-bottom: 50px;
-            }
-
-            .section-title {
-                font-size: 4rem;
+            .headshot-wrapper {
+                justify-self: start;
             }
 
             .skills-grid,
-            .projects-grid {
+            .projects {
                 grid-template-columns: 1fr;
             }
 
-            .skill-category,
-            .skill-category:nth-child(2) {
-                padding: 30px 0;
-                border-left: none;
+            .section-header {
+                display: block;
             }
 
-            .project-card,
-            .project-card:nth-child(2) {
-                padding: 35px 0;
-                border-left: none;
+            .section-number {
+                display: block;
+                margin-bottom: 0.75rem;
             }
 
-            footer {
-                padding: 35px 20px;
+            .footer-container {
                 flex-direction: column;
-                gap: 15px;
+                gap: 1rem;
                 align-items: flex-start;
             }
         }
@@ -380,45 +456,73 @@
 
     <!-- NAVIGATION -->
     <nav>
-        <a href="#" class="nav-name">Estella Chow</a>
+        <div class="nav-container">
+            <div class="nav-name">
+                ESTELLA <span>CHOW</span>
+            </div>
 
-        <div class="nav-links">
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
+            <ul class="nav-links">
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
         </div>
     </nav>
 
 
     <!-- HERO -->
-    <header>
-        <div class="hero">
+    <header class="hero">
 
-            <div class="hero-top">
-                <span class="hero-label">Business Analytics × Technology</span>
+        <div class="hero-container">
 
-                <span class="hero-location">
-                    Rutgers University<br>
-                    New Brunswick, NJ
-                </span>
-            </div>
-
-            <h1 class="hero-name">
-                Estella<br>Chow
-            </h1>
-
-            <div class="hero-bottom">
-
-                <p class="personal-statement">
-                    A detail-oriented business analytics student passionate about using data and technology to solve complex problems and create impactful business solutions.
+            <div>
+                <p class="hero-label">
+                    Business Analytics × Technology
                 </p>
 
-                <div class="hero-scroll">
-                    ↓ Explore my work
+                <h1>
+                    Estella<br>
+                    <span>Chow.</span>
+                </h1>
+
+                <p class="hero-description">
+                    A detail-oriented business analytics student passionate
+                    about using data and technology to solve complex problems
+                    and create impactful business solutions.
+                </p>
+
+                <div class="hero-info">
+                    <span>
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        Rutgers University
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-location-dot"></i>
+                        New Brunswick, NJ
+                    </span>
+                </div>
+            </div>
+
+
+            <!-- HEADSHOT -->
+            <div class="headshot-wrapper">
+
+                <img
+                    src="headshot.jpg"
+                    alt="Estella Chow"
+                    class="headshot"
+                >
+
+                <div class="headshot-decoration"></div>
+
+                <div class="headshot-label">
+                    BAIT × Finance
                 </div>
 
             </div>
 
         </div>
+
     </header>
 
 
@@ -428,37 +532,50 @@
         <section id="skills">
 
             <div class="section-header">
-                <span class="section-number">01 / Skills</span>
-
-                <h2 class="section-title">
-                    Skills &<br>
-                    Capabilities
-                </h2>
+                <h2 class="section-title">Skills</h2>
+                <span class="section-number">01 / 02</span>
             </div>
+
 
             <div class="skills-grid">
 
                 <div class="skill-category">
-                    <h3>Programming & Tools</h3>
+
+                    <div class="skill-heading">
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+
+                        <h3>Programming & Tools</h3>
+                    </div>
 
                     <ul class="skills-list">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Microsoft Excel</span>
+                        <li class="skill-tag">Python</li>
+                        <li class="skill-tag">SQL</li>
+                        <li class="skill-tag">Java</li>
+                        <li class="skill-tag">Microsoft Excel</li>
                     </ul>
+
                 </div>
 
 
                 <div class="skill-category">
-                    <h3>Business & Analytics</h3>
+
+                    <div class="skill-heading">
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+
+                        <h3>Business & Analytics</h3>
+                    </div>
 
                     <ul class="skills-list">
-                        <span class="skill-tag">Financial Analysis</span>
-                        <span class="skill-tag">Data Visualization</span>
-                        <span class="skill-tag">Database Management</span>
-                        <span class="skill-tag">Tableau</span>
+                        <li class="skill-tag">Financial Analysis</li>
+                        <li class="skill-tag">Data Visualization</li>
+                        <li class="skill-tag">Database Management</li>
+                        <li class="skill-tag">Tableau</li>
                     </ul>
+
                 </div>
 
             </div>
@@ -470,29 +587,31 @@
         <section id="projects">
 
             <div class="section-header">
-                <span class="section-number">02 / Selected Work</span>
-
-                <h2 class="section-title">
-                    Featured<br>
-                    Projects
-                </h2>
+                <h2 class="section-title">Projects</h2>
+                <span class="section-number">02 / 02</span>
             </div>
 
 
-            <div class="projects-grid">
+            <div class="projects">
 
-                <!-- PROJECT 01 -->
+                <!-- PROJECT 1 -->
                 <article class="project-card">
 
                     <div>
-                        <span class="project-number">01 — DESIGN</span>
+                        <span class="project-number">
+                            PROJECT 01
+                        </span>
 
                         <h3 class="project-title">
                             Graphic Design Portfolio
                         </h3>
 
                         <p class="project-description">
-                            A collection of promotional graphics and social media designs created for Rutgers Business Information Technology Society, showcasing my experience in visual communication, branding, and digital design.
+                            A collection of promotional graphics and social
+                            media designs created for Rutgers Business
+                            Information Technology Society, showcasing
+                            experience in visual communication, branding,
+                            and digital design.
                         </p>
                     </div>
 
@@ -501,24 +620,30 @@
                         target="_blank"
                         class="project-link"
                     >
-                        View Design Portfolio →
+                        View Design Portfolio
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
 
                 </article>
 
 
-                <!-- PROJECT 02 -->
+                <!-- PROJECT 2 -->
                 <article class="project-card">
 
                     <div>
-                        <span class="project-number">02 — DATA ANALYTICS</span>
+                        <span class="project-number">
+                            PROJECT 02
+                        </span>
 
                         <h3 class="project-title">
                             Deloitte Data Analytics Job Simulation
                         </h3>
 
                         <p class="project-description">
-                            Completed Deloitte's Data Analytics job simulation through Forage, creating a data dashboard using Tableau and using Excel to classify data and draw business conclusions.
+                            Completed Deloitte's Data Analytics job simulation
+                            through Forage, creating a data dashboard using
+                            Tableau and using Excel to classify data and draw
+                            business conclusions.
                         </p>
                     </div>
 
@@ -527,7 +652,8 @@
                         target="_blank"
                         class="project-link"
                     >
-                        View Certificate →
+                        View Certificate
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
 
                 </article>
@@ -542,9 +668,18 @@
     <!-- FOOTER -->
     <footer>
 
-        <span>© 2026 Estella Chow</span>
+        <div class="footer-container">
 
-        <span>Business Analytics × Technology</span>
+            <p>
+                © 2026 Estella Chow
+            </p>
+
+            <p>
+                Business Analytics <span class="footer-accent">×</span>
+                Technology
+            </p>
+
+        </div>
 
     </footer>
 
