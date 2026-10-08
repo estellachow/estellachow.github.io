@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Portfolio | Professional Overview</title>
     <style>
+        :root {
+            --bg-main: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --navy-primary: #0a192f;
+            --blue-accent: #1e3a8a;
+            --blue-light: #e0e7ff;
+            --border-color: #e2e8f0;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -13,81 +24,273 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-            padding: 2rem;
+        }
+
+        /* Navigation / Header */
+        header {
+            background-color: var(--navy-primary);
+            color: #ffffff;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
             max-width: 800px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
         }
 
-        header {
-            text-align: center;
-            padding: 2rem 0;
-            border-bottom: 2px solid #e9ecef;
-            margin-bottom: 2rem;
+        /* Headshot Placeholder */
+        .headshot-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            overflow: hidden;
+            background-color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
 
-        h1 {
-            font-size: 2.5rem;
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
+        .headshot-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        p.subtitle {
-            font-size: 1.1rem;
-            color: #6c757d;
+        .hero-name {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        /* Personal Statement */
+        .personal-statement {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #e2e8f0;
+            max-width: 650px;
+            line-height: 1.5;
+        }
+
+        /* Layout Structure */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
         }
 
         section {
-            background: #ffffff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            margin-bottom: 1.5rem;
+            margin-bottom: 3.5rem;
         }
 
-        h2 {
+        .section-title {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #0969da;
+            color: var(--navy-primary);
+            border-bottom: 3px solid var(--blue-accent);
+            display: inline-block;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        ul {
-            list-style-type: square;
-            margin-left: 1.5rem;
+        /* Skills Showcase */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
         }
 
-        li {
+        .skill-category {
+            background-color: var(--bg-secondary);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-category h3 {
+            font-size: 1rem;
+            color: var(--blue-accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .skills-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background-color: var(--blue-light);
+            color: var(--blue-accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--navy-primary);
+            border-radius: 6px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            color: var(--navy-primary);
             margin-bottom: 0.5rem;
         }
 
-        a.button {
-            display: inline-block;
-            background-color: #0969da;
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1rem;
+        .project-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
         }
 
-        a.button:hover {
-            background-color: #0451a5;
+        .project-link {
+            display: inline-block;
+            color: #ffffff;
+            background-color: var(--navy-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            background-color: var(--blue-accent);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.875rem;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Welcome to My Website</h1>
-        <p class="subtitle">Portfolio & Projects</p>
+        <div class="hero-container">
+            <!-- HEADSHOT LOCATION: Replace "headshot.jpg" with your image file name -->
+            <div class="headshot-container">
+                <img src="headshot.jpg" alt="Profile Headshot" onerror="this.style.display='none'; this.parentElement.innerText='Your Photo';">
+            </div>
+            
+            <h1 class="hero-name">Estella Chow</h1>
+
+            <!-- PERSONAL STATEMENT -->
+            <p class="personal-statement">
+                A detail-oriented software developer and designer passionate about crafting accessible, high-performance web applications that solve real-world problems.
+            </p>
+        </div>
     </header>
 
     <main>
-        <section>
-            <h2>About Me</h2>
-            <p>Hello! I am building my website hosted on GitHub Pages. This is a basic HTML template with styling
+        <!-- SKILLS SHOWCASE -->
+        <section id="skills">
+            <h2 class="section-title">Skills & Capabilities</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <ul class="skills-list">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                    </ul>
+                </div>
 
-        
+                <div class="skill-category">
+                    <h3>Design & Tools</h3>
+                    <ul class="skills-list">
+                        <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">Figma</span>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Professional Skills</h3>
+                    <ul class="skills-list">
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Technical Communication</span>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <article class="project-card">
+                    <h3 class="project-title">Personal Portfolio Website</h3>
+                    <p class="project-description">
+                        A clean, responsive personal portfolio hosted on GitHub Pages designed to highlight professional skills, project accomplishments, and career experience using pure HTML and custom CSS.
+                    </p>
+                    <a href="https://github.com/estellachow" target="_blank" class="project-link">View Project Repository &rarr;</a>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card">
+                    <h3 class="project-title">Interactive Task Management App</h3>
+                    <p class="project-description">
+                        A web application built to help users organize daily workflows, set priority levels, and track task completion with real-time browser storage persistence.
+                    </p>
+                    <a href="https://github.com/estellachow" target="_blank" class="project-link">View Live Demo &rarr;</a>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card">
+                    <h3 class="project-title">Data Visualization Dashboard</h3>
+                    <p class="project-description">
+                        An analytics interface that parses structured data sets and visualizes trends through dynamic charts, giving users actionable insights into key performance metrics.
+                    </p>
+                    <a href="https://github.com/estellachow" target="_blank" class="project-link">View Case Study &rarr;</a>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Estella Chow. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
